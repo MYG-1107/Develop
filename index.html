@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== Meta & SEO ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>FinanceFit – Personal Financial Health Score & Budget Planner</title>
+  <meta name="description" content="FinanceFit helps you understand your financial health, create a personal budget, track savings goals, and get a personalised action plan — free and instant, no login required." />
+  <meta name="keywords" content="budget planner, financial health score, savings calculator, debt payoff, personal finance tool, free budget calculator" />
+  <meta name="author" content="FinanceFit" />
+  <link rel="canonical" href="https://myg-1107.github.io/Develop/" />
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://myg-1107.github.io/Develop/" />
+  <meta property="og:title" content="FinanceFit – Personal Financial Health Score & Budget Planner" />
+  <meta property="og:description" content="Understand your financial health instantly. Enter your income and expenses to get a personalised Financial Health Score and actionable tips." />
+  <meta property="og:image" content="https://myg-1107.github.io/Develop/assets/og-image.png" />
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FinanceFit – Financial Health Score" />
+  <meta name="twitter:description" content="Free budget planner that scores your finances and gives personalised tips." />
+  <meta name="twitter:image" content="https://myg-1107.github.io/Develop/assets/og-image.png" />
+
+  <!-- ===== Structured Data (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FinanceFit",
+    "url": "https://myg-1107.github.io/Develop/",
+    "description": "Free personal financial health score and budget planning tool.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- ===== Favicon ===== -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>" />
+
+  <!-- ===== Stylesheet ===== -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- ===== Performance: preconnect ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== SKIP LINK (Accessibility) ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="FinanceFit home">
+        <span class="logo-icon" aria-hidden="true">💰</span>
+        <span class="logo-text">FinanceFit</span>
+      </a>
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#tool">Calculator</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button id="darkModeToggle" class="btn btn-icon" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="badge">Free · No login required</span>
+          <h1 id="hero-heading">Know Your <span class="gradient-text">Financial Health</span> in 2 Minutes</h1>
+          <p class="hero-subtitle">Enter your monthly income and expenses to instantly get your personalised Financial Health Score, a budget breakdown, and actionable steps to improve your finances.</p>
+          <div class="hero-cta">
+            <a href="#tool" class="btn btn-primary">Get My Score →</a>
+            <a href="#how-it-works" class="btn btn-ghost">How it works</a>
+          </div>
+          <p class="hero-note">🔒 All calculations happen in your browser. We never store or share your data.</p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="score-preview">
+            <div class="score-ring score-ring--demo">
+              <svg viewBox="0 0 120 120" class="ring-svg">
+                <circle class="ring-bg" cx="60" cy="60" r="52"/>
+                <circle class="ring-fill ring-fill--demo" cx="60" cy="60" r="52"
+                  stroke-dasharray="326.7" stroke-dashoffset="65.3"/>
+              </svg>
+              <div class="score-inner">
+                <span class="score-number">80</span>
+                <span class="score-label">Good</span>
+              </div>
+            </div>
+            <p class="score-caption">Financial Health Score</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES STRIP -->
+    <section id="features" class="features-strip" aria-labelledby="features-heading">
+      <div class="container">
+        <h2 id="features-heading" class="sr-only">Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">📊</span>
+            <h3>Financial Health Score</h3>
+            <p>A single 0–100 score based on your savings rate, debt ratio, and emergency fund.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">💡</span>
+            <h3>Smart Budget Split</h3>
+            <p>See your spending broken down with the 50/30/20 rule and personalised recommendations.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">🎯</span>
+            <h3>Savings Goals</h3>
+            <p>Set a savings target and get a clear monthly plan to reach it on time.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">🏦</span>
+            <h3>Debt Payoff Planner</h3>
+            <p>Calculate how long it will take to pay off debt and how much interest you'll save.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">📱</span>
+            <h3>Mobile Ready</h3>
+            <p>Works beautifully on any device — phone, tablet, or desktop.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon" aria-hidden="true">🔒</span>
+            <h3>100% Private</h3>
+            <p>No login, no tracking. Your numbers stay in your browser only.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="how-it-works" aria-labelledby="how-heading">
+      <div class="container">
+        <h2 id="how-heading" class="section-title">How It Works</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number" aria-hidden="true">1</div>
+            <h3>Enter your income</h3>
+            <p>Input your monthly take-home pay and any additional income sources.</p>
+          </div>
+          <div class="step-arrow" aria-hidden="true">→</div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">2</div>
+            <h3>Add your expenses</h3>
+            <p>Break down housing, transport, food, subscriptions, debt payments, and savings.</p>
+          </div>
+          <div class="step-arrow" aria-hidden="true">→</div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">3</div>
+            <h3>Get your score</h3>
+            <p>Receive your Financial Health Score with a detailed breakdown and tips.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MAIN TOOL ===== -->
+    <section id="tool" class="tool-section" aria-labelledby="tool-heading">
+      <div class="container">
+        <h2 id="tool-heading" class="section-title">Your Financial Health Calculator</h2>
+        <p class="section-subtitle">Fill in your monthly figures below — use estimates if you're unsure.</p>
+
+        <div class="tool-layout">
+
+          <!-- FORM PANEL -->
+          <div class="form-panel">
+
+            <!-- Tab Navigation -->
+            <div class="tab-nav" role="tablist" aria-label="Calculator sections">
+              <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-income" id="btn-income" data-tab="income">
+                <span aria-hidden="true">💵</span> Income
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-expenses" id="btn-expenses" data-tab="expenses">
+                <span aria-hidden="true">🧾</span> Expenses
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-goals" id="btn-goals" data-tab="goals">
+                <span aria-hidden="true">🎯</span> Goals
+              </button>
+            </div>
+
+            <!-- Income Tab -->
+            <div class="tab-panel active" id="tab-income" role="tabpanel" aria-labelledby="btn-income">
+              <h3 class="panel-title">Monthly Income</h3>
+
+              <div class="form-group">
+                <label for="income-salary">Primary income (take-home pay) <span class="required" aria-hidden="true">*</span></label>
+                <div class="input-prefix">
+                  <span class="prefix" aria-hidden="true">$</span>
+                  <input type="number" id="income-salary" name="income-salary"
+                    placeholder="3500" min="0" max="9999999" step="1"
+                    aria-required="true" autocomplete="off" />
+                </div>
+                <span class="field-hint">Your monthly salary / wages after tax</span>
+              </div>
+
+              <div class="form-group">
+                <label for="income-side">Side income (freelance, rental, etc.)</label>
+                <div class="input-prefix">
+                  <span class="prefix" aria-hidden="true">$</span>
+                  <input type="number" id="income-side" name="income-side"
+                    placeholder="0" min="0" max="9999999" step="1"
+                    autocomplete="off" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="income-other">Other income (benefits, dividends, etc.)</label>
+                <div class="input-prefix">
+                  <span class="prefix" aria-hidden="true">$</span>
+                  <input type="number" id="income-other" name="income-other"
+                    placeholder="0" min="0" max="9999999" step="1"
+                    autocomplete="off" />
+                </div>
+              </div>
+
+              <div class="income-total card-inline">
+                <span>Total monthly income:</span>
+                <strong id="income-total-display">$0</strong>
+              </div>
+
+              <div class="tab-actions">
+                <button class="btn btn-primary" id="next-to-expenses">Next: Expenses →</button>
+              </div>
+            </div>
+
+            <!-- Expenses Tab -->
+            <div class="tab-panel" id="tab-expenses" role="tabpanel" aria-labelledby="btn-expenses" hidden>
+              <h3 class="panel-title">Monthly Expenses</h3>
+
+              <fieldset class="expense-group">
+                <legend>🏠 Housing</legend>
+                <div class="form-group">
+                  <label for="exp-housing">Rent / mortgage payment</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-housing" name="exp-housing" placeholder="1200" min="0" step="1" autocomplete="off" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exp-utilities">Utilities (electricity, water, internet)</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-utilities" name="exp-utilities" placeholder="150" min="0" step="1" autocomplete="off" />
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="expense-group">
+                <legend>🚗 Transport</legend>
+                <div class="form-group">
+                  <label for="exp-transport">Car payment / public transport</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-transport" name="exp-transport" placeholder="350" min="0" step="1" autocomplete="off" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exp-fuel">Fuel / parking</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-fuel" name="exp-fuel" placeholder="80" min="0" step="1" autocomplete="off" />
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="expense-group">
+                <legend>🍔 Food &amp; Lifestyle</legend>
+                <div class="form-group">
+                  <label for="exp-groceries">Groceries</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-groceries" name="exp-groceries" placeholder="400" min="0" step="1" autocomplete="off" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exp-dining">Dining out / takeaways</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-dining" name="exp-dining" placeholder="150" min="0" step="1" autocomplete="off" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exp-entertainment">Entertainment &amp; subscriptions</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-entertainment" name="exp-entertainment" placeholder="80" min="0" step="1" autocomplete="off" />
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="expense-group">
+                <legend>💳 Debt &amp; Insurance</legend>
+                <div class="form-group">
+                  <label for="exp-debt">Minimum debt payments (credit cards, loans)</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-debt" name="exp-debt" placeholder="200" min="0" step="1" autocomplete="off" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exp-insurance">Insurance (health, car, home)</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-insurance" name="exp-insurance" placeholder="150" min="0" step="1" autocomplete="off" />
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="expense-group">
+                <legend>💰 Savings &amp; Investments</legend>
+                <div class="form-group">
+                  <label for="exp-savings">Monthly savings / investments</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-savings" name="exp-savings" placeholder="300" min="0" step="1" autocomplete="off" />
+                  </div>
+                  <span class="field-hint">Include 401(k) contributions, emergency fund, investments</span>
+                </div>
+              </fieldset>
+
+              <fieldset class="expense-group">
+                <legend>📦 Other</legend>
+                <div class="form-group">
+                  <label for="exp-other">Other expenses</label>
+                  <div class="input-prefix">
+                    <span class="prefix" aria-hidden="true">$</span>
+                    <input type="number" id="exp-other" name="exp-other" placeholder="100" min="0" step="1" autocomplete="off" />
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="expense-total card-inline">
+                <span>Total monthly expenses:</span>
+                <strong id="expense-total-display">$0</strong>
+              </div>
+
+              <div class="tab-actions">
+                <button class="btn btn-ghost" id="back-to-income">← Back</button>
+                <button class="btn btn-primary" id="next-to-goals">Next: Goals →</button>
+              </div>
+            </div>
+
+            <!-- Goals Tab -->
+            <div class="tab-panel" id="tab-goals" role="tabpanel" aria-labelledby="btn-goals" hidden>
+              <h3 class="panel-title">Your Financial Goals</h3>
+              <p class="panel-subtitle">Optional — add goals to get a personalised plan.</p>
+
+              <div class="form-group">
+                <label for="goal-emergency">Emergency fund (months of expenses)</label>
+                <div class="input-suffix">
+                  <input type="number" id="goal-emergency" name="goal-emergency"
+                    placeholder="3" min="0" max="24" step="1" autocomplete="off" />
+                  <span class="suffix" aria-hidden="true">months</span>
+                </div>
+                <span class="field-hint">Recommended: 3–6 months of expenses</span>
+              </div>
+
+              <div class="form-group">
+                <label for="goal-current-savings">Current savings balance</label>
+                <div class="input-prefix">
+                  <span class="prefix" aria-hidden="true">$</span>
+                  <input type="number" id="goal-current-savings" name="goal-current-savings"
+                    placeholder="5000" min="0" step="1" autocomplete="off" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="goal-total-debt">Total outstanding debt</label>
+                <div class="input-prefix">
+                  <span class="prefix" aria-hidden="true">$</span>
+                  <input type="number" id="goal-total-debt" name="goal-total-debt"
+                    placeholder="8000" min="0" step="1" autocomplete="off" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="goal-debt-rate">Average debt interest rate</label>
+                <div class="input-suffix">
+                  <input type="number" id="goal-debt-rate" name="goal-debt-rate"
+                    placeholder="18.9" min="0" max="100" step="0.1" autocomplete="off" />
+                  <span class="suffix" aria-hidden="true">%</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="goal-saving-target">Savings goal amount</label>
+                <div class="input-prefix">
+                  <span class="prefix" aria-hidden="true">$</span>
+                  <input type="number" id="goal-saving-target" name="goal-saving-target"
+                    placeholder="20000" min="0" step="1" autocomplete="off" />
+                </div>
+              </div>
+
+              <div class="tab-actions">
+                <button class="btn btn-ghost" id="back-to-expenses">← Back</button>
+                <button class="btn btn-primary btn-large" id="calculate-btn">
+                  <span class="btn-text">Calculate My Score 🚀</span>
+                  <span class="btn-loading" hidden aria-hidden="true">Calculating…</span>
+                </button>
+              </div>
+            </div>
+
+          </div><!-- /form-panel -->
+
+          <!-- RESULTS PANEL -->
+          <div class="results-panel" id="results-panel" aria-live="polite" aria-label="Your financial health results">
+
+            <!-- Empty state -->
+            <div class="results-empty" id="results-empty">
+              <div class="empty-illustration" aria-hidden="true">📋</div>
+              <h3>Your results will appear here</h3>
+              <p>Fill in the form on the left to get your personalised Financial Health Score.</p>
+            </div>
+
+            <!-- Results content (hidden until calculated) -->
+            <div class="results-content" id="results-content" hidden>
+
+              <!-- Score Ring -->
+              <div class="score-section">
+                <div class="score-ring" id="score-ring">
+                  <svg viewBox="0 0 120 120" class="ring-svg" aria-hidden="true">
+                    <circle class="ring-bg" cx="60" cy="60" r="52"/>
+                    <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="52"
+                      stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
+                  </svg>
+                  <div class="score-inner">
+                    <span class="score-number" id="score-number">0</span>
+                    <span class="score-label" id="score-label">—</span>
+                  </div>
+                </div>
+                <h3 id="score-title" class="score-title">Financial Health Score</h3>
+                <p id="score-description" class="score-description"></p>
+              </div>
+
+              <!-- Budget Breakdown -->
+              <div class="result-card">
+                <h4 class="result-card-title">📊 Budget Breakdown</h4>
+                <div class="budget-bars" id="budget-bars" aria-label="Budget breakdown chart"></div>
+                <div class="budget-legend" id="budget-legend"></div>
+              </div>
+
+              <!-- 50/30/20 Rule -->
+              <div class="result-card">
+                <h4 class="result-card-title">💡 50/30/20 Rule Analysis</h4>
+                <div id="rule-analysis" class="rule-analysis"></div>
+              </div>
+
+              <!-- Key Metrics -->
+              <div class="result-card">
+                <h4 class="result-card-title">📈 Key Metrics</h4>
+                <dl class="metrics-list" id="metrics-list"></dl>
+              </div>
+
+              <!-- Goals Progress -->
+              <div class="result-card" id="goals-card">
+                <h4 class="result-card-title">🎯 Goals Progress</h4>
+                <div id="goals-results"></div>
+              </div>
+
+              <!-- Action Plan -->
+              <div class="result-card result-card--highlight">
+                <h4 class="result-card-title">✅ Your Personalised Action Plan</h4>
+                <ul class="action-list" id="action-list"></ul>
+              </div>
+
+              <!-- Share / Reset -->
+              <div class="results-actions">
+                <button class="btn btn-primary" id="share-btn">📤 Share My Score</button>
+                <button class="btn btn-ghost" id="reset-btn">↺ Start Over</button>
+              </div>
+              <p class="results-disclaimer">Scores and tips are educational estimates only — not professional financial advice.</p>
+
+            </div><!-- /results-content -->
+          </div><!-- /results-panel -->
+
+        </div><!-- /tool-layout -->
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="social-proof" aria-labelledby="proof-heading">
+      <div class="container">
+        <h2 id="proof-heading" class="section-title">Why Financial Literacy Matters</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">66%</div>
+            <p>of Americans couldn't cover a $1,000 emergency from savings</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">$6,194</div>
+            <p>Average US household credit card debt in 2024</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">57%</div>
+            <p>of adults feel anxious about their personal finances</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">$0</div>
+            <p>Cost to use FinanceFit and start improving today</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon" aria-hidden="true">💰</span>
+        <span class="logo-text">FinanceFit</span>
+        <p>Free financial health tools for everyone.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="#tool">Calculator</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+        </ul>
+      </nav>
+      <div class="footer-legal">
+        <p>© 2025 FinanceFit. Educational tool only — not financial advice.</p>
+        <p>All calculations are performed locally in your browser.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="assertive" hidden></div>
+
+  <!-- ===== Scripts ===== -->
+  <script src="js/calculator.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
